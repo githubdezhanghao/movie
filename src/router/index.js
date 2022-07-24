@@ -6,8 +6,9 @@ const routes = [
   //重定向
   {
     path:'/',
-    redirect:'film/nowPlaying'
+    redirect:'/film/nowPlaying'
   },
+  //将数组元素一个一个放进来
   ...FilmRoutes
 ]
 
