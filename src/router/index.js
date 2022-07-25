@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import FilmRoutes from './modules/film'
+import CinemaRoutes from './modules/cinema'
+import NewsRoutes from './modules/news'
+import UcenterRoutes from './modules/ucenter'
 Vue.use(VueRouter)
 const routes = [
   //重定向
@@ -9,7 +12,10 @@ const routes = [
     redirect:'/film/nowPlaying'
   },
   //将数组元素一个一个放进来
-  ...FilmRoutes
+  ...FilmRoutes,
+  ...CinemaRoutes,
+  ...NewsRoutes,
+  ...UcenterRoutes
 ]
 
 const router = new VueRouter({

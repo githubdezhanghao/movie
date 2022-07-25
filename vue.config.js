@@ -6,7 +6,7 @@ module.exports = defineConfig({
     //端口
     port:8080,
     //打开浏览器
-    open:true,
+    open:false,
     proxy:{
         '/api':{
           target:"https://api.iynn.cn/film/api/v1",
