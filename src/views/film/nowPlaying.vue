@@ -7,7 +7,7 @@
       finished-text="没有更多了"
       @load="onLoad"
     >
-      <Card v-for="item in films" :key="item.filmId">
+      <Card v-for="item in films" :key="item.filmId" text="购票">
         <template v-slot:left>
           <img :src="item.poster" />
         </template>
@@ -29,7 +29,7 @@
         </template>
       </Card>
     </van-list>
-    <div style="height:50px"></div>
+
   </div>
 </template>
 
@@ -93,11 +93,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.filmType {
-  color: white;
-  background: #d2d6dc;
-  border-radius: 2px;
-  font-size: 0.8em;
-  padding: 0 2px;
-}
+
 </style>

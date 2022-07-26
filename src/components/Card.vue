@@ -9,14 +9,30 @@
       <slot name="center"></slot>
     </div>
     <!-- 按钮 -->
-    <div>
-      <van-button plain color="#ff5f16">购票</van-button>
+    <div style="width:15%">
+      <van-button plain :color="color" v-if="isPresale">{{ text }}</van-button>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    text: {
+      type: String,
+      require: true,
+    },
+    isPresale:{
+     type:Boolean,
+     default:true
+    }
+  },
+  data() {
+    return {
+      color: this.text === '预购' ? '#ffb232' : '#ff5f16'
+    }
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -36,13 +52,13 @@ export default {};
   > div:nth-child(2) {
     width: 50%;
     > div:nth-child(1) {
-      font-size: 1.1em;
+      font-size: 1.05em;
       font-weight: 500;
     }
     > div:nth-child(2) {
       margin-top: 5px;
       color: gray;
-      font-size: 0.9em;
+      font-size: 0.85em;
       > div:nth-child(2) {
         margin-top: 2.5px;
         margin-bottom: 2.5px;
@@ -62,5 +78,12 @@ export default {};
       padding: 0 10px;
     }
   }
+}
+.filmType {
+  color: white;
+  background: #d2d6dc;
+  border-radius: 2px;
+  font-size: 0.7em;
+  padding: 0 2px;
 }
 </style>

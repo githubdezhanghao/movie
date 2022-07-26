@@ -9,14 +9,15 @@
       <van-tabbar-item replace to="/cinema">
         <template slot="icon"
           ><span class="iconfont icon-yingyuan"></span></template
-        >影院</van-tabbar-item>
+        >影院</van-tabbar-item
+      >
       <van-tabbar-item replace to="/news">
-        <template slot="icon"><span class="iconfont icon-zixun"></span></template
+        <template slot="icon"
+          ><span class="iconfont icon-zixun"></span></template
         >咨询</van-tabbar-item
       >
       <van-tabbar-item replace to="/ucenter">
-      <template slot="icon"
-          ><span class="iconfont icon-wode"></span></template
+        <template slot="icon"><span class="iconfont icon-wode"></span></template
         >我的</van-tabbar-item
       >
     </van-tabbar>
@@ -26,10 +27,26 @@
 <script>
 import Vue from "vue";
 import { Tabbar, TabbarItem } from "vant";
-import '../assets/icon/iconfont.css'
+import "../assets/icon/iconfont.css";
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 export default {
+  mounted() {
+    switch (this.$route.path) {
+      case "/":
+        this.active = 0;
+        break;
+      case "/cinema":
+        this.active = 1;
+        break;
+      case "/news":
+        this.active = 2;
+        break;
+      case "/ucenter":
+        this.active = 3;
+        break;
+    }
+  },
   data() {
     return {
       active: 0,
@@ -39,9 +56,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.van-tabbar-item__icon{
-    >span{
-      font-size: 22px;  
-    }
+.van-tabbar-item__icon {
+  > span {
+    font-size: 22px;
+  }
 }
 </style>

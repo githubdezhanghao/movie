@@ -7,6 +7,9 @@
 const prefix = 'https://api.iynn.cn/film/api/v1'
 const url = {
     //正在热映
-    nowPlaying: prefix + '/getNowPlayingFilmList'
+    nowPlaying: prefix + '/getNowPlayingFilmList',
+    comingSoon: prefix + '/getComingSoonFilmList',
+    cityList: prefix + '/getCitiesInfo'
+
 }
 export default url
