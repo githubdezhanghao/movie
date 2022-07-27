@@ -57,10 +57,13 @@ export default {
   created() {
     this.loadData();
   },
+  mounted () {
+
+  },
   methods: {
     loadData(page = 1) {
       this.$http
-        .get(url.nowPlaying, { params: { pageNum: page } })
+        .get(url.nowPlaying, { params: { pageNum: page,cityId:localStorage.getItem('cityId') } })
         .then((res) => {
           console.log(res);
           this.films = [...this.films, ...res.data.data.films];

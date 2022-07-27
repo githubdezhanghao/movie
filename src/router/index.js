@@ -15,6 +15,10 @@ const routes = [
     path:'/city',
     component:()=>import('@/views/city.vue')
   },
+  {
+    path:'/vuex',
+    component:()=>import('@/vuex.vue')
+  },
   //将数组元素一个一个放进来
   ...FilmRoutes,
   ...CinemaRoutes,

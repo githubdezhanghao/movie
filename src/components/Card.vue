@@ -10,12 +10,15 @@
     </div>
     <!-- 按钮 -->
     <div style="width:15%">
-      <van-button plain :color="color" v-if="isPresale">{{ text }}</van-button>
+      <van-button v-if="isPresale" plain :color="color" >{{ text }}</van-button>
     </div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import { Button } from 'vant'
+Vue.use(Button)
 export default {
   props: {
     text: {

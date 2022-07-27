@@ -3,13 +3,21 @@
     <van-sticky @scroll="changeStatus">
       <van-nav-bar title="电影" :border="false" v-show="navBarStatus">
         <template slot="left">
-          <span @click="$router.push('/city')">北京</span>
+          <span
+            @click="
+              $router.push({ path: '/city' ,  query: { back: $route.path } })
+            "
+            >{{ cityName }}</span
+          >
           <van-icon name="arrow-down" />
         </template>
       </van-nav-bar>
-      <van-tabs 
-      v-model = "active"
-      title-active-color="#ff5f16" :line-height="2" :line-width="55">
+      <van-tabs
+        v-model="active"
+        title-active-color="#ff5f16"
+        :line-height="2"
+        :line-width="55"
+      >
         <van-tab title="正在热映" replace to="/film/nowPlaying"></van-tab>
         <van-tab title="即将上映" replace to="/film/comingSoon"></van-tab>
       </van-tabs>
@@ -33,6 +41,9 @@ export default {
       //导航栏显示状态
       navBarStatus: false,
       active: window.location.pathname === "/film/comingSoon" ? 1 : 0,
+      cityName: localStorage.getItem("cityName")
+        ? localStorage.getItem("cityName")
+        : "北京",
     };
   },
   methods: {
@@ -44,11 +55,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 // 样式穿透 ::v-deep
-::v-deep .van-tabs__line {
+/* 新版里 样式穿透写法  :deep(选择器) */
+:deep(.van-tabs__line) {
   background-color: #ff5f16;
 }
-::v-deep .van-nav-bar__text,
-.van-icon-arrow-down {
+:deep(.van-nav-bar__text) {
   color: black;
+}
+:deep(.van-icon-arrow-down) {
+  color: black;
+}
+:deep(.van-sticky) {
+  background-color: #fff;
 }
 </style>
